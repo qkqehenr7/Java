@@ -1,0 +1,10 @@
+### GET gemini test
+POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAxGitJ3cnSa38e16yLOmOc_Jfj8stshIA
+Content-Type: application/json
+
+{
+  "contents": [{
+    "parts":[{"text": "오늘 저녁 메뉴를 추천해줄래?"}]
+  }]
+}
+###
