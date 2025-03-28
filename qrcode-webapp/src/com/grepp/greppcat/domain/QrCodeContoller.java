@@ -1,15 +1,15 @@
-package com.grepp.greppcat.d_greppcap.domain;
+package com.grepp.greppcat.domain;
 
-import com.grepp.greppcat.d_greppcap.http.HttpHeader;
-import com.grepp.greppcat.d_greppcap.http.HttpMethod;
-import com.grepp.greppcat.d_greppcap.http.request.HttpRequest;
-import com.grepp.greppcat.d_greppcap.http.response.HttpResponse;
-import com.grepp.greppcat.d_greppcap.http.response.ResponseBody;
-import com.grepp.greppcat.d_greppcap.http.response.ResponseStartLine;
-import com.grepp.greppcat.d_greppcap.servlet.Servlet;
-import com.grepp.greppcat.d_greppcap.servlet.annotation.EndPoint;
-import com.grepp.greppcat.d_greppcap.servlet.annotation.RequestMapping;
-import com.grepp.greppcat.d_greppcap.util.QrCodeUtil;
+import com.grepp.greppcat.http.HttpHeader;
+import com.grepp.greppcat.http.HttpMethod;
+import com.grepp.greppcat.http.request.HttpRequest;
+import com.grepp.greppcat.http.response.HttpResponse;
+import com.grepp.greppcat.http.response.ResponseBody;
+import com.grepp.greppcat.http.response.ResponseStartLine;
+import com.grepp.greppcat.servlet.Servlet;
+import com.grepp.greppcat.servlet.annotation.EndPoint;
+import com.grepp.greppcat.servlet.annotation.RequestMapping;
+import com.grepp.greppcat.util.QrCodeUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -27,7 +27,8 @@ public class QrCodeContoller implements Servlet {
 
             return new HttpResponse(
                 ResponseStartLine.OK,
-                new HttpHeader(),
+                new HttpHeader()
+                    .add("Content-disposition", "attachment; filename=" + filename),
                 new ResponseBody().addBody(bos.toByteArray())
             );
 
